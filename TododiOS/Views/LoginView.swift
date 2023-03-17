@@ -15,26 +15,24 @@ struct LoginView: View {
     var body: some View {
         VStack{
             Image("Logo").resizable().frame(width: 150, height: 150, alignment: .center)
-            Text("Sign in to your account")
+            Text("sign_in")
                 .font(.title)
                 .fontWeight(.bold)
                 .padding(.top,15)
             
-            TextField("Username or Email",text:self.$email)
+            TextField("username",text:self.$email)
                 .autocapitalization(.none)
                 .padding()
                 .background(RoundedRectangle(cornerRadius:6).stroke(Color.gray,lineWidth:2))
                 .padding(.top,0)
             
-            SecureField("Password", text: self.$password)
+            SecureField("password", text: self.$password)
                 .autocapitalization(.none)
                 .padding()
                 .background(RoundedRectangle(cornerRadius: 6).stroke(Color.gray, lineWidth: 2))
             
-            Button(action:{
-                self.Login()
-            }){
-                    Text("Sign in")
+            Button(action:Login){
+                    Text("sign_in")
                     .foregroundColor(.white)
                     .fontWeight(.bold)
                     .padding()
@@ -43,6 +41,8 @@ struct LoginView: View {
             .background(Color.blue)
             .cornerRadius(6)
             .padding(.top, 6)
+            
+            
         }.padding(.horizontal, 15)
     }
     

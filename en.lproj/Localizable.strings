@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  TododiOS
+
+  Created by kalyan Pidugu on 17/03/23.
+  
+*/
+"sign_in" = "Sign in to your account";
+"username" = "Username or Email";
+"password" = "Password"
+"sign_in" = "Sign in"

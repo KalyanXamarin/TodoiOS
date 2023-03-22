@@ -45,6 +45,11 @@ struct LoginView: View {
             
             
         }.padding(.horizontal, 15)
+        
+        NavigationLink(destination: HomeView(), isActive: $loginViewModel.isHome) {
+            EmptyView()
+        }
+
     }
     
     func Login()

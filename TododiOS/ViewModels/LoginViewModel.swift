@@ -9,18 +9,24 @@ import Foundation
 
 final class LoginViewModel : ObservableObject {
     
+    @Published var isHome = false
     private let apiService: APIService
     init(apiService: APIService = APIService()){
         self.apiService = apiService
     }
     
     func login(user:String, pass: String){
-        var data = LoginModel(granttype: "password", username: user, password: pass)
-        
-        let url = URL(string: "https://acgmoqataamobileapi-staging.azurewebsites.net/token")
-        apiService.post(AuthenticationDataContract.self, body: data, url: url){ result in
-            print("\nTuple After Modification: ")
+        apiService.loginToken(username: user, password: pass){ result in
+           DispatchQueue.main.async {
+               switch result {
+               case .failure(let error):
+                   // print(error.description)
+                   print(error)
+               case .success(let auth):
+                   UserDefaults.standard.set(auth.access_token, forKey: "auth_key")
+                   self.isHome = true
+               }
+           }
         }
-            
     }
 }

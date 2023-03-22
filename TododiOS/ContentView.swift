@@ -10,7 +10,14 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         NavigationView{
-            LoginView()
+            if UserDefaults.standard.object(forKey: "auth_key") == nil
+            {
+                LoginView()
+            }
+            else
+            {
+                HomeView()
+            }
         }
     }
 }

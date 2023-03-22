@@ -12,14 +12,3 @@ struct AuthenticationDataContract : Decodable {
     let token_type: String
     let refresh_token: String
 }
-
-struct LoginModel : Codable {
-    let granttype : String
-    let username: String
-    let password: String
-    init(granttype: String, username: String, password: String) {
-        self.granttype = granttype
-        self.username = username
-        self.password = password
-    }
-}

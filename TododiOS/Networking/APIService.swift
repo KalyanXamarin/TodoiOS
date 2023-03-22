@@ -33,13 +33,13 @@ struct APIService
         task.resume()
     }
     
-    func post<T:Decodable,RT:Decodable>(_ type: RT.Type, body: T, url:URL?, completion: @escaping(Result<RT,APIError>) -> Void){
+    func post<RT:Decodable, T:Codable>(_ type: RT.Type, body: T, url:URL?, completion: @escaping(Result<RT,APIError>) -> Void){
         guard let endURL = url else{
             completion(Result.failure(APIError.badURL))
             return
         }
-        
-        let jsonData = try? JSONSerialization.data(withJSONObject: body)
+     
+        let jsonData = try? JSONEncoder().encode(body)
         var request = URLRequest(url: endURL)
         request.httpMethod = "POST"
         request.setValue("\(String(describing: jsonData?.count))", forHTTPHeaderField: "Content-Length")

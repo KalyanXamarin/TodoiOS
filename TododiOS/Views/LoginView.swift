@@ -11,6 +11,7 @@ struct LoginView: View {
     
     @State var email = ""
     @State var password = ""
+    @StateObject var loginViewModel = LoginViewModel()
     
     var body: some View {
         VStack{
@@ -48,7 +49,7 @@ struct LoginView: View {
     
     func Login()
     {
-        
+        loginViewModel.login(user: email, pass: password)
     }
 }
 

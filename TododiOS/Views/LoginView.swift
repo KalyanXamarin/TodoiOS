@@ -11,6 +11,7 @@ struct LoginView: View {
     
     @State var email = ""
     @State var password = ""
+    @State var isHome = false;
     @StateObject var loginViewModel = LoginViewModel()
     
     var body: some View {
@@ -43,13 +44,11 @@ struct LoginView: View {
             .cornerRadius(6)
             .padding(.top, 6)
             
+            NavigationLink(destination: HomeView(), isActive: $loginViewModel.isHome) {
+                EmptyView()
+            }
             
         }.padding(.horizontal, 15)
-        
-        NavigationLink(destination: HomeView(), isActive: $loginViewModel.isHome) {
-            EmptyView()
-        }
-
     }
     
     func Login()

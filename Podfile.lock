@@ -1,0 +1,16 @@
+PODS:
+  - SwiftDrawer (5.0.2)
+
+DEPENDENCIES:
+  - SwiftDrawer
+
+SPEC REPOS:
+  trunk:
+    - SwiftDrawer
+
+SPEC CHECKSUMS:
+  SwiftDrawer: 2ed1b1e13fa46323bb04b6cc417c05edf51b1b4a
+
+PODFILE CHECKSUM: 910a17ad12ddddf34350d958d19e6c6b9a355c05
+
+COCOAPODS: 1.11.3

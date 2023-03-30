@@ -16,7 +16,7 @@ struct ContentView: View {
             }
             else
             {
-                HomeView()
+                MainView()
             }
         }
     }

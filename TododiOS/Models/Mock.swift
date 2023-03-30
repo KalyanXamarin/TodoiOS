@@ -7,14 +7,13 @@
 
 import Foundation
 
-struct Mock: Codable, Identifiable
+struct MockData : Codable, Identifiable
 {
     var id = UUID()
-    var MockList : [MockData] = []
-}
-
-struct MockData : Codable
-{
     var title: String
     var description: String
+    
+    private enum CodingKeys: String, CodingKey {
+           case title, description
+    }
 }

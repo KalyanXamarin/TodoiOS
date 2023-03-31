@@ -14,32 +14,47 @@ struct HomeView: View {
     
     @StateObject var homeViewModel = HomeViewModel()
 
+    @State var selection = 0
+    
     var body: some View {
-        TabView
+        TabView(selection: $selection)
         {
             ListView()
                 .tabItem{
-                    Label("Home", image: "Home")
+                    Image("Home")
                 }
             
             SecondTab()
                 .tabItem{
-                    Label("Settings", image: "settings")
+                    Image("Settings")
                 }
             
             ThirdTab()
                 .tabItem{
-                    Label("Favourites", image: "star")
+                    Image("Star")
                 }
             
         }
         .accentColor(.red)
+        .overlay(starOverlay, alignment: .topTrailing)
         .onAppear{
-            UITabBar.appearance().isTranslucent = false
-            UITabBar.appearance().backgroundColor = .lightGray
+            let appearance = UITabBarAppearance()
+            appearance.shadowColor = .white
+            appearance.shadowImage = UIImage(named: "tab-shadow")?.withRenderingMode(.alwaysTemplate)
+            appearance.backgroundColor = UIColor.darkGray
+
+           UITabBar.appearance().scrollEdgeAppearance = appearance
         }
     }
     
+    @ViewBuilder private var starOverlay: some View {
+        if homeViewModel.isLoading {
+            ZStack {
+                Color(white: 0, opacity: 0.30)
+                ProgressView().tint(.white)
+            }
+        }
+   }
     func ListView() -> some View
     {
         VStack{

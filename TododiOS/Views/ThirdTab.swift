@@ -12,34 +12,38 @@ import AVKit
 struct ThirdTab: View {
  
     var body: some View {
-        VStack(spacing:0){
-            TabView {
-                getVideoView(link:"https://www.youtube.com/watch?v=nA6Jo6YnL9g")
-                getVideoView(link:"https://www.youtube.com/watch?v=nA6Jo6YnL9g")
-                getVideoView(link:"https://www.youtube.com/watch?v=nA6Jo6YnL9g")
-            }
-            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-            .frame(height: 300)
-
-            VStack(alignment: .leading) {
-                Text("Your Highness").frame(maxWidth: .infinity, alignment: .center)
-                Text("Kalyan Pidugu").frame(maxWidth: .infinity, alignment: .center)
+        NavigationView{
+            VStack(spacing:0){
+                TabView {
+                    getVideoView(link:"https://www.youtube.com/watch?v=nA6Jo6YnL9g")
+                    getVideoView(link:"https://www.youtube.com/watch?v=nA6Jo6YnL9g")
+                    getVideoView(link:"https://www.youtube.com/watch?v=nA6Jo6YnL9g")
+                }
+                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+                .frame(height: 300)
                 
+                VStack(alignment: .leading) {
+                    Text("Your Highness").frame(maxWidth: .infinity, alignment: .center)
+                    Text("Kalyan Pidugu").frame(maxWidth: .infinity, alignment: .center)
+                    
+                }
+                .padding()
+                .cornerRadius(15)
+                HStack{
+                    Spacer()
+                    NavigationLink(destination: QilabhView()){
+                        getIconView(title: "Quibah", iconName: "Settings")
+                    }
+                    Spacer()
+                    getIconView(title: "Quibah", iconName: "Settings")
+                    Spacer()
+                    getIconView(title: "Quibah", iconName: "Settings")
+                    Spacer()
+                }
+                Spacer()
             }
-            .padding()
-            .cornerRadius(15)
-            HStack{
-                Spacer()
-                getIconView()
-                Spacer()
-                getIconView()
-                Spacer()
-                getIconView()
-                Spacer()
-            }
-            Spacer()
+            .padding(.all,0)
         }
-        .padding(.all,0)
     }
     
     func getVideoView(link: String) -> some View{
@@ -47,14 +51,16 @@ struct ThirdTab: View {
             .frame(height: 300)
     }
     
-    func getIconView() -> some View {
+    func getIconView(title:String, iconName:String) -> some View {
         VStack{
             Image("Settings")
                 .padding(10)
                 .background(.blue)
                 .cornerRadius(15)
             Text("Quilabh")
+                .foregroundColor(.green)
                 .padding(3)
+            
         }
     }
 }

@@ -33,7 +33,10 @@ struct HomeView: View {
                 .tabItem{
                     Image("Star")
                 }
-            
+            QuranTab()
+                .tabItem{
+                    Image("Settings")
+                }
         }
         .accentColor(.red)
         .overlay(starOverlay, alignment: .topTrailing)

@@ -28,15 +28,34 @@ struct ThirdTab: View {
             }
             .padding()
             .cornerRadius(15)
+            HStack{
+                Spacer()
+                getIconView()
+                Spacer()
+                getIconView()
+                Spacer()
+                getIconView()
+                Spacer()
+            }
             Spacer()
         }
         .padding(.all,0)
-        
     }
     
     func getVideoView(link: String) -> some View{
         VideoPlayer(player: AVPlayer(url:  URL(string: link)!))
             .frame(height: 300)
+    }
+    
+    func getIconView() -> some View {
+        VStack{
+            Image("Settings")
+                .padding(10)
+                .background(.blue)
+                .cornerRadius(15)
+            Text("Quilabh")
+                .padding(3)
+        }
     }
 }
 

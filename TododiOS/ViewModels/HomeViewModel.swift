@@ -20,7 +20,7 @@ final class HomeViewModel : ObservableObject {
     func loadData()
     {
         isLoading = true
-        apiService.fetch([MockData].self,url: URL(string:"http://demo5147872.mockable.io/json2")) { result in
+        apiService.fetch([MockData].self,url: "http://demo5147872.mockable.io/json2") { result in
             DispatchQueue.main.async {
                 self.isLoading = false
                 switch result {

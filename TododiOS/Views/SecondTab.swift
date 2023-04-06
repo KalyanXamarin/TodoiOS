@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SecondTab: View {
-    
+    @ObservedObject var compassViewModel = CompassViewModel()
     @ObservedObject var compass = CompassLogic()
     var body: some View {
          VStack {
@@ -23,6 +23,10 @@ struct SecondTab: View {
                  .rotationEffect(Angle(degrees: compass.north))
              }
          }
+         .onAppear{
+              compassViewModel.locationManager.requestLocation()
+          }
+       
     }
 }
 

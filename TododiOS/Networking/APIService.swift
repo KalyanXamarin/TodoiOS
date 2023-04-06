@@ -9,8 +9,8 @@ import Foundation
 
 struct APIService
 {
-    func fetch<T: Decodable>(_ type: T.Type, url: URL?, completion: @escaping(Result<T,APIError>) -> Void){
-        guard let endURL = url else{
+    func fetch<T: Decodable>(_ type: T.Type, url: String, completion: @escaping(Result<T,APIError>) -> Void){
+        guard let endURL = URL(string: url) else{
             completion(Result.failure(APIError.badURL))
             return
         }

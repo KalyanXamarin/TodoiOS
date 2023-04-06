@@ -13,7 +13,7 @@ struct QuranTab: View {
         GeometryReader { metrics in
             VStack{
                 Spacer()
-                SwiftUIWebView().frame(height: metrics.size.height * 0.6)
+                SwiftUIWebView().frame(height: metrics.size.height * 1)
                 Spacer()
             }
         }
